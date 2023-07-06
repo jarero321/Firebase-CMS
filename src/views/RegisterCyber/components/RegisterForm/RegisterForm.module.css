@@ -1,0 +1,14 @@
+.container {
+    width: 40%;
+    height: 60%;
+    background-color: white;
+    border-radius: 20px;
+    padding:24px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.title {
+    color: #092B3E;
+}

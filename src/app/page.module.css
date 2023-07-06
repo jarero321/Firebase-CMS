@@ -16,6 +16,10 @@
   gap: 20px;
 }
 
+.link {
+  width: 100%;
+}
+
 @media (min-width: 1200px) {
   .buttonContainer {
     width: 50%;

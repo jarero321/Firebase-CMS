@@ -1,6 +1,7 @@
 import Image from 'next/image';
 import s from './page.module.css';
 import CustomButton from '@/components/UI/CustomButton/CustomButton';
+import Link from 'next/link';
 export default function Home() {
   return (
     <main className={s.container}>
@@ -14,11 +15,15 @@ export default function Home() {
         />
       </div>
       <div className={s.buttonContainer}>
-        <CustomButton text="Ver Lista de Cyberpsicopatas" variant="primary" />
-        <CustomButton
-          text="Registrar nuevo Cyberpsicopata"
-          variant="secondary"
-        />
+        <Link href="/cyberpsicopatas" className={s.link}>
+          <CustomButton text="Ver Lista de Cyberpsicopatas" variant="primary" />
+        </Link>
+        <Link href="/registrar-cyberpsicopata" className={s.link}>
+          <CustomButton
+            text="Registrar nuevo Cyberpsicopata"
+            variant="secondary"
+          />
+        </Link>
       </div>
     </main>
   );
