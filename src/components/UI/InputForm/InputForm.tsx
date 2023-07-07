@@ -8,6 +8,7 @@ import {
   TextField,
 } from '@mui/material';
 import { inputValidation } from './input.validations';
+import { PrimaryTextField } from './InputForm.variants';
 
 export type InputFormProps = {
   name: string;
@@ -32,15 +33,12 @@ const InputForm: React.FC<InputFormProps> = ({
   label,
   type = 'text',
   required = false,
-  variant = 'filled',
   InputProps,
 }) => {
   const {
     control,
     formState: { errors },
-    watch,
   } = useFormContext();
-  const password = watch('new_password');
 
   const typeRules = rulesTypes[name] || 'text';
 
@@ -49,7 +47,7 @@ const InputForm: React.FC<InputFormProps> = ({
     error: !!errors[name],
     fullWidth: true,
     helperText: errors[name]?.message as ReactNode,
-    InputProps: { ...InputProps, disableUnderline: true },
+    InputProps: { ...InputProps },
     label,
     type,
     variant: 'outlined',
@@ -59,9 +57,10 @@ const InputForm: React.FC<InputFormProps> = ({
     <Controller
       control={control}
       name={name}
-      defaultValue=""
       rules={inputValidation(typeRules, required)}
-      render={({ field }) => <TextField {...field} {...textFieldProps} />}
+      render={({ field }) => (
+        <PrimaryTextField fullWidth {...field} {...textFieldProps} />
+      )}
     />
   );
 };

@@ -7,17 +7,19 @@ export type CustomButtonProps = {
   text?: string;
   handleClick?: () => void;
   variant: 'primary' | 'secondary';
+  type?: 'button' | 'submit';
 };
 
 const CustomButton: React.FC<CustomButtonProps> = ({
   text = 'Button',
   handleClick,
   variant,
+  type,
 }) => {
   return (
     <div className={styles.button}>
       {variant === 'primary' ? (
-        <PrimaryVariant fullWidth onClick={handleClick}>
+        <PrimaryVariant fullWidth type={type} onClick={handleClick}>
           {text}
         </PrimaryVariant>
       ) : (
