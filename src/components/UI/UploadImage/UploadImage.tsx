@@ -14,7 +14,6 @@ const UploadImages: React.FC<UploadImagesProps> = ({ name }) => {
   } = useFormContext();
   const inputRef = useRef<HTMLInputElement>(null);
   const [selectedImage, setSelectedImage] = useState<File | null>(null);
-  console.log(errors);
 
   useEffect(() => {
     if (selectedImage) {
