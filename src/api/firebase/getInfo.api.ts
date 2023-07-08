@@ -17,6 +17,9 @@ const getPsycopathDetail = async (name: string): Promise<Psycopath[]> => {
   const psychopathsRef = collection(db, 'cyberpsicopataas');
   const querySnapShot = query(psychopathsRef, where('name', '==', name));
   const queryInfo = await getDocs(querySnapShot);
+  if (queryInfo.empty) {
+    throw 'no ahi cyber';
+  }
   const psycopathsColection = queryInfo.docs.map((doc) => ({
     id: doc.id,
     ...doc.data(),

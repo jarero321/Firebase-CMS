@@ -1,7 +1,9 @@
 'use client'; // Error components must be Client Components
 
+import { Button } from '@/components/UI';
 import { useEffect } from 'react';
-
+import s from './error.module.css';
+import Link from 'next/link';
 export default function Error({
   error,
   reset,
@@ -10,23 +12,20 @@ export default function Error({
   reset: () => void;
 }) {
   useEffect(() => {
-    // Log the error to an error reporting service
     console.error(error);
   }, [error]);
 
   return (
-    <div>
-      <h2>
-        Parece ser que no tenemos a un cyberpsicopata registrado con ese nombre
-      </h2>
-      <button
-        onClick={
-          // Attempt to recover by trying to re-render the segment
-          () => reset()
-        }
-      >
-        Try again
-      </button>
+    <div className={s.container}>
+      <div className={s.main}>
+        <h2 className={s.title} >
+          Parece ser que no tenemos a un cyberpsicopata registrado con ese
+          nombre
+        </h2>
+        <Link href="/registrar-cyberpsicopata">
+          <Button variant="primary" text="Registrar cyberpsicopata" />
+        </Link>
+      </div>
     </div>
   );
 }

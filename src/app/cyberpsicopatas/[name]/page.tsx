@@ -5,7 +5,6 @@ import { CyberInfoDetail } from '@/views/CyberPshicopaths/components/CyberInfoDe
 
 async function PsycopathDetail({ params }: { params: { name: string } }) {
   const psycoDetail = await getPsycopathDetail(params.name);
-  console.log(psycoDetail);
   return (
     <main className={s.main}>
       <div className={s.container}>
