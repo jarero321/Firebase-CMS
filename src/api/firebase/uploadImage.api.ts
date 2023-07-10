@@ -1,12 +1,12 @@
 import {
   ref,
-  getStorage,
   uploadBytes,
   UploadResult,
   getDownloadURL,
   StorageReference,
 } from 'firebase/storage';
 import { storage } from './config/firebase.config';
+import { toast } from 'react-toastify';
 import { v4 as uuidv4 } from 'uuid';
 
 const uploadDocInStorage = async (
@@ -22,6 +22,7 @@ const uploadDocInStorage = async (
     return image_url;
   } catch (error) {
     console.error(error);
+    toast.error('Hubo un error al subir la imagen del cyberpsicopata');
     return '';
   }
 };
