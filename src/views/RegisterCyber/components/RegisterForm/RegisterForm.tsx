@@ -11,6 +11,7 @@ import { createNewCyber } from '@/api/firebase/uploadInfo.api';
 
 const RegisterForm: React.FC = () => {
   const [loading, setLoading] = useState(false);
+
   const handleSubmit = async (data: any) => {
     setLoading(true);
     try {
@@ -26,8 +27,9 @@ const RegisterForm: React.FC = () => {
       setLoading(false);
     }
   };
+
   return (
-    <main className={s.main}>
+    <section className={s.main}>
       <div className={s.mainContainer}>
         <div className={s.container}>
           <h1 className={s.title}> Ingresa los datos del cyberpsicopata </h1>
@@ -61,7 +63,7 @@ const RegisterForm: React.FC = () => {
           </div>
         </div>
       </div>
-    </main>
+    </section>
   );
 };
 

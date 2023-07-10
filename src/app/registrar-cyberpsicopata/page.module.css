@@ -1,8 +1,8 @@
 .container {
     max-width: 100vw;
-    max-height:100vh;
-    width: 100vw;
-    height: 100vh;
+    width: 100%;
+    height: 100%;
+    box-sizing: content-box;
     display: flex;
     align-items: center;
     justify-content: center;
