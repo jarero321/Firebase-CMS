@@ -22,6 +22,7 @@ const uploadDocInStorage = async (
     return image_url;
   } catch (error) {
     console.error(error);
+    console.log('que esta pasando');
     toast.error('Hubo un error al subir la imagen del cyberpsicopata');
     return '';
   }

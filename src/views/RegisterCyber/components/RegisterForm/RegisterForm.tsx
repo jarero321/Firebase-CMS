@@ -10,7 +10,7 @@ import { adapterPsycopath } from '@/adapters/psychopath/psycopath.adapter';
 import { createNewCyber } from '@/api/firebase/uploadInfo.api';
 import { Notifications } from '@/components/Notifications';
 import { toast } from 'react-toastify';
-import { useRouter } from 'next/router';
+import { useRouter } from 'next/navigation';
 const RegisterForm: React.FC = () => {
   const [loading, setLoading] = useState(false);
   const router = useRouter();
@@ -36,7 +36,6 @@ const RegisterForm: React.FC = () => {
 
   return (
     <section className={s.main}>
-      <Notifications />
       <div className={s.mainContainer}>
         <div className={s.container}>
           <h1 className={s.title}> Ingresa los datos del cyberpsicopata </h1>
