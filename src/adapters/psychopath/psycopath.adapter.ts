@@ -1,6 +1,10 @@
+import { TypeWithKey } from '@/models/TypeWithKey.model';
 import { Psycopath } from '@/models/psycopath/psycopath.models';
 
-const adapterPsycopath = (data: any, img_url: string): Psycopath => {
+const adapterPsycopath = (
+  data: TypeWithKey<string>,
+  img_url: string
+): Psycopath => {
   return {
     name: data?.psycopath_name,
     range: data?.psycopath_range,

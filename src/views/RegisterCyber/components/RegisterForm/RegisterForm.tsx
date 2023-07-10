@@ -8,19 +8,19 @@ import { Button } from '@/components/UI';
 import { uploadDocInStorage } from '@/api/firebase/uploadImage.api';
 import { adapterPsycopath } from '@/adapters/psychopath/psycopath.adapter';
 import { createNewCyber } from '@/api/firebase/uploadInfo.api';
-import { Notifications } from '@/components/Notifications';
 import { toast } from 'react-toastify';
 import { useRouter } from 'next/navigation';
+import { TypeWithKey } from '@/models/TypeWithKey.model';
 const RegisterForm: React.FC = () => {
   const [loading, setLoading] = useState(false);
   const router = useRouter();
 
-  const handleSubmit = async (data: any) => {
+  const handleSubmit = async (data: TypeWithKey<string | Blob>) => {
     setLoading(true);
     try {
       const image_url = await uploadDocInStorage(
-        data.psycopath_photography,
-        data.psycopath_name
+        data.psycopath_photography as Blob,
+        data.psycopath_name as string
       );
       const infoAdapted = adapterPsycopath(data, image_url);
       await createNewCyber(infoAdapted);
